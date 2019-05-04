@@ -16,7 +16,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           @if(auth()->user()->id_level == 1)
           <a class="dropdown-item" href="{{ route('inventaris.index') }}">Inventaris</a>
-          <a class="dropdown-item" href="{{ route('laporan.index') }}">Laporan</a>
+          <!-- <a class="dropdown-item" href="{{ route('laporan.index') }}">Laporan</a> -->
           @endif
 
           <a class="dropdown-item" href="{{ route('peminjaman.create') }}">Peminjaman</a>

@@ -27,7 +27,7 @@
             <td>{{ $listPinjam->tanggal_kembali }}</td>
             <td>{{ $listPinjam->detailPinjam->id_inventaris }}</td>
             <td>
-              <a href="{{ route('peminjaman.detailBarang',$listPinjam->detailPinjam->id_detail_pinjam) }}">Detail</a>|
+              <a href="{{ route('peminjaman.detailBarang',$listPinjam->detailPinjam->id_detail_pinjam) }}">Pengembalian</a>|
               <a href="{{ route('peminjaman.edit',$listPinjam->id_peminjaman)  }}">Edit</a>|
               <form action="{{ route('peminjaman.destroy',$listPinjam->id_peminjaman) }}" method="post">
                 @method('DELETE')

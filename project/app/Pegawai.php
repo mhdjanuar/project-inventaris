@@ -8,6 +8,7 @@ class Pegawai extends Model
 {
     protected $table = 'pegawai';
     protected $primaryKey = 'id_pegawai';
+    public $incrementing = false;
 
     // public function peminjaman()
     // {

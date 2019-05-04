@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Inventaris;
 use App\DetailPinjam;
 use App\Peminjaman;
+use App\Pegawai;
 
 class PeminjamanController extends Controller
 {
@@ -37,7 +38,9 @@ class PeminjamanController extends Controller
         $genereteId = Peminjaman::convertAngka($subID);
         $idPinjam = 'PM'.$genereteId;
 
-        return view('peminjaman.tambahPinjaman')->with('idPinjam',$idPinjam);
+        $pegawai = Pegawai::all();
+        $inventaris = Inventaris::all();
+        return view('peminjaman.tambahPinjaman',compact('pegawai','inventaris'))->with('idPinjam',$idPinjam);
     }
 
     /**
@@ -87,9 +90,11 @@ class PeminjamanController extends Controller
      */
     public function edit($id)
     {
+        $pegawai = Pegawai::all();
+        $inventaris = Inventaris::all();
         $peminjaman = Peminjaman::find($id);
 
-        return view('peminjaman.edit',compact('peminjaman'));
+        return view('peminjaman.edit',compact('pegawai','inventaris','peminjaman'));
 
     }
 
@@ -121,6 +126,7 @@ class PeminjamanController extends Controller
         ]);
 
         Peminjaman::find($idPinjam)->update($validatePinjaman);
+        return redirect()->route('peminjaman.index');
     }
 
     /**
